@@ -2,22 +2,31 @@ package com.devsuperior.movieflix.dto;
 
 import java.util.Objects;
 
-import com.devsuperior.movieflix.entities.Movie;
+import com.devsuperior.movieflix.entities.Review;
 import com.devsuperior.movieflix.entities.User;
 
 public class ReviewDTO {
 
 	private Long id;
-	
 	private String text;
-	
+	private User user;
+	private Long movieId;
+
 	public ReviewDTO() {		
 	}
 
-	public ReviewDTO(Long id, String text, User user) {
+	public ReviewDTO(Long id, String text, User user, Long movieId) {
 		this.id = id;
 		this.text = text;
 		this.user = user;
+		this.movieId = movieId;
+	}
+	
+	public ReviewDTO(Review entity) {
+		id = entity.getId();
+		text = entity.getText();
+		user = entity.getUser();
+		movieId = entity.getMovie().getId();
 	}
 
 	public Long getId() {
@@ -35,14 +44,6 @@ public class ReviewDTO {
 	public void setText(String text) {
 		this.text = text;
 	}
-
-	public Movie getMovie() {
-		return movie;
-	}
-
-	public void setMovie(Movie movie) {
-		this.movie = movie;
-	}
 	
 	public User getUser() {
 		return user;
@@ -50,6 +51,14 @@ public class ReviewDTO {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Long getMovieId() {
+		return movieId;
+	}
+
+	public void setMovieId(Long movieId) {
+		this.movieId = movieId;
 	}
 
 	@Override
