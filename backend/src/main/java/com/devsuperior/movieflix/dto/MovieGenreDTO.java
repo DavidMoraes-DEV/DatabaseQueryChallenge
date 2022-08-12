@@ -10,7 +10,7 @@ public class MovieGenreDTO implements Serializable {
 	private Long id;
 	private String title;
 	private String subTitle;
-	private Integer yaer;
+	private Integer year;
 	private String imgUrl;
 	private String synopsis;
 	private GenreDTO genre;
@@ -22,7 +22,7 @@ public class MovieGenreDTO implements Serializable {
 		id = entity.getId();
 		title = entity.getTitle();
 		subTitle = entity.getSubTitle();
-		yaer = entity.getYear();
+		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 		synopsis = entity.getSynopsis();
 		genre = new GenreDTO(entity.getGenre());
@@ -52,12 +52,12 @@ public class MovieGenreDTO implements Serializable {
 		this.subTitle = subTitle;
 	}
 
-	public Integer getYaer() {
-		return yaer;
+	public Integer getYear() {
+		return year;
 	}
 
-	public void setYaer(Integer yaer) {
-		this.yaer = yaer;
+	public void setYear(Integer year) {
+		this.year = year;
 	}
 
 	public String getImgUrl() {

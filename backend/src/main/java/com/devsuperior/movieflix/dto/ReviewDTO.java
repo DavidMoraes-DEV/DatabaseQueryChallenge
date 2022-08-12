@@ -2,31 +2,34 @@ package com.devsuperior.movieflix.dto;
 
 import java.util.Objects;
 
+import javax.validation.constraints.NotBlank;
+
 import com.devsuperior.movieflix.entities.Review;
-import com.devsuperior.movieflix.entities.User;
 
 public class ReviewDTO {
 
 	private Long id;
+	
+	@NotBlank(message = "Campo requerido")
 	private String text;
-	private User user;
 	private Long movieId;
-
+	private UserDTO user;
+	
 	public ReviewDTO() {		
 	}
 
-	public ReviewDTO(Long id, String text, User user, Long movieId) {
+	public ReviewDTO(Long id, String text, Long movieId, UserDTO user) {
 		this.id = id;
 		this.text = text;
-		this.user = user;
 		this.movieId = movieId;
+		this.user = user;
 	}
 	
 	public ReviewDTO(Review entity) {
 		id = entity.getId();
 		text = entity.getText();
-		user = entity.getUser();
 		movieId = entity.getMovie().getId();
+		user = new UserDTO(entity.getUser());
 	}
 
 	public Long getId() {
@@ -45,11 +48,11 @@ public class ReviewDTO {
 		this.text = text;
 	}
 	
-	public User getUser() {
+	public UserDTO getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserDTO user) {
 		this.user = user;
 	}
 

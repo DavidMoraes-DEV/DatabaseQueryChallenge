@@ -1,6 +1,7 @@
 package com.devsuperior.movieflix.controllers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -106,7 +107,7 @@ public class ReviewResourceIT {
 						.contentType(MediaType.APPLICATION_JSON)
 						.accept(MediaType.APPLICATION_JSON));
 		
-		result.andExpect(status().isCreated());
+		result.andExpect(status().isCreated()).andDo(print());
 		
 		result.andExpect(jsonPath("$.id").isNotEmpty());
 		result.andExpect(jsonPath("$.text").value(reviewText));

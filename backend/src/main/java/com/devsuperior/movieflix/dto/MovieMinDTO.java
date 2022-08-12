@@ -10,17 +10,26 @@ public class MovieMinDTO implements Serializable {
 	private Long id;
 	private String title;
 	private String subTitle;
-	private Integer yaer;
+	private Integer year;
 	private String imgUrl;
 	
 	public MovieMinDTO() {
 	}
 	
+	public MovieMinDTO(Long id, String title, String subTitle, Integer year, String imgUrl) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.subTitle = subTitle;
+		this.year = year;
+		this.imgUrl = imgUrl;
+	}
+
 	public MovieMinDTO(Movie entity) {
 		id = entity.getId();
 		title = entity.getTitle();
 		subTitle = entity.getSubTitle();
-		yaer = entity.getYear();
+		year = entity.getYear();
 		imgUrl = entity.getImgUrl();
 	}
 
@@ -48,12 +57,12 @@ public class MovieMinDTO implements Serializable {
 		this.subTitle = subTitle;
 	}
 
-	public Integer getYaer() {
-		return yaer;
+	public Integer getYear() {
+		return year;
 	}
 
-	public void setYaer(Integer yaer) {
-		this.yaer = yaer;
+	public void setYaer(Integer year) {
+		this.year = year;
 	}
 
 	public String getImgUrl() {
